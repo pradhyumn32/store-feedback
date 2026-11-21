@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap');
+
+.admin-stores {
+    margin-top: 42px
+}
+
+.admin-stores h2 {
+    margin: 0
+}
+
+.store-form {
+    grid-template-columns: repeat(3, 1fr) auto
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: #f8f6f2;
+    color: #202520;
+    font: 15px 'DM Sans', sans-serif
+}
+
+button,
+input,
+select {
+    font: inherit
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 7px;
+    background: #315a43;
+    color: white;
+    padding: 10px 15px;
+    font-weight: 700
+}
+
+button:hover {
+    background: #244631
+}
+
+.auth {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 8vw;
+    max-width: 1050px;
+    margin: auto;
+    padding: 48px
+}
+
+.auth h1 {
+    font: 700 clamp(42px, 6vw, 74px) 'Playfair Display';
+    line-height: 1;
+    margin: 10px 0
+}
+
+.auth section p:not(.eyebrow) {
+    font-size: 18px;
+    max-width: 360px;
+    color: #5a625b
+}
+
+.auth form,
+.password {
+    background: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px #1b2e2114
+}
+
+.auth form h2 {
+    margin-top: 0
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: .16em;
+    font-weight: 700;
+    color: #5a6d5e;
+    margin: 0
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin: 13px 0
+}
+
+input,
+select {
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    border: 1px solid #d9ddd6;
+    border-radius: 6px;
+    background: #fff;
+    padding: 10px
+}
+
+.switch {
+    font-size: 13px
+}
+
+.link,
+.ghost,
+.sort {
+    color: #315a43;
+    background: none;
+    padding: 0
+}
+
+.link:hover,
+.ghost:hover,
+.sort:hover {
+    background: none;
+    color: #173322
+}
+
+.error {
+    color: #af3434
+}
+
+.app {
+    max-width: 1180px;
+    padding: 0 28px 70px;
+    margin: auto
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid #dfe3dc
+}
+
+header strong {
+    display: inline-block;
+    margin-top: 5px
+}
+
+.badge {
+    font-size: 10px;
+    background: #dbeadf;
+    color: #315a43;
+    margin-left: 8px;
+    padding: 3px 6px;
+    border-radius: 5px
+}
+
+section>h1 {
+    font: 700 36px 'Playfair Display';
+    margin: 42px 0 22px
+}
+
+.search {
+    width: min(400px, 100%);
+    display: inline-block
+}
+
+.toolbar {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 18px
+}
+
+.toolbar select {
+    width: 130px;
+    margin: 0
+}
+
+.metrics {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 30px
+}
+
+.metrics article {
+    background: #315a43;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 150px
+}
+
+.metrics strong {
+    display: block;
+    font-size: 30px
+}
+
+.metrics span {
+    font-size: 12px
+}
+
+.inline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px
+}
+
+.inline label {
+    margin: 0
+}
+
+.inline button {
+    align-self: end
+}
+
+table {
+    border-collapse: collapse;
+    background: #fff;
+    width: 100%;
+    margin-top: 18px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 14px #1b2e210a
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #edf0eb
+}
+
+th {
+    font-size: 12px;
+    color: #5e695f;
+    text-transform: uppercase
+}
+
+td small {
+    color: #697269
+}
+
+.sort {
+    text-transform: uppercase;
+    font-size: 12px
+}
+
+.owner-card {
+    background: #315a43;
+    color: #fff;
+    padding: 28px;
+    border-radius: 10px
+}
+
+.owner-card h2 {
+    margin: 0 0 12px
+}
+
+.password-toggle {
+    position: fixed;
+    right: 24px;
+    bottom: 20px
+}
+
+.password {
+    position: fixed;
+    right: 24px;
+    bottom: 72px;
+    width: 300px
+}
+
+.password p {
+    margin-bottom: 0
+}
+
+@media(max-width:720px) {
+    .auth {
+        grid-template-columns: 1fr;
+        padding: 30px
+    }
+
+    .app {
+        padding: 0 14px
+    }
+
+    .toolbar,
+    .metrics {
+        flex-wrap: wrap
+    }
+
+    .inline {
+        grid-template-columns: 1fr 1fr
+    }
+
+    table {
+        font-size: 13px
+    }
+
+    th,
+    td {
+        padding: 10px
+    }
+
+    .app section {
+        overflow-x: auto
+    }
+}

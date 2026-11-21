@@ -1,0 +1,32 @@
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(60) NOT NULL CHECK (char_length(name) BETWEEN 20 AND 60),
+  email VARCHAR(254) NOT NULL UNIQUE,
+  password_hash TEXT NOT NULL,
+  address VARCHAR(400) NOT NULL,
+  role VARCHAR(12) NOT NULL DEFAULT 'USER' CHECK (role IN ('ADMIN', 'USER', 'OWNER')),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS stores (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(254) NOT NULL UNIQUE,
+  address VARCHAR(400) NOT NULL,
+  owner_id INTEGER UNIQUE REFERENCES users(id) ON DELETE SET NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS ratings (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  store_id INTEGER NOT NULL REFERENCES stores(id) ON DELETE CASCADE,
+  score SMALLINT NOT NULL CHECK (score BETWEEN 1 AND 5),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  UNIQUE (user_id, store_id)
+);
+
+CREATE INDEX IF NOT EXISTS users_role_idx ON users(role);
+CREATE INDEX IF NOT EXISTS stores_name_idx ON stores(name);
+CREATE INDEX IF NOT EXISTS ratings_store_idx ON ratings(store_id);
